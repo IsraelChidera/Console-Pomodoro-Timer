@@ -27,11 +27,9 @@ namespace PomodoroTimer
             }
             if (reply == 0)
             {
-                Console.WriteLine("Ok!");
+                Console.WriteLine("Ok! Come back when you are ready to work");
             }
-
-            
-            
+                       
         }
 
     }

@@ -11,8 +11,7 @@ namespace PomodoroTimer
         public Timer(int workTime, int restTime)
         {
             _workTime = workTime;
-            _restTime = restTime;
-            start = 0;
+            _restTime = restTime;            
         }
 
         public Timer() { }
