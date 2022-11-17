@@ -7,10 +7,10 @@ namespace PomodoroTimer
         private int _workTime;
         private int _restTime;
 
-        public Timer(int workTime)
+        public Timer(int workTime, int restTime)
         {
             _workTime = workTime;
-            //_restTime = restTime;
+            _restTime = restTime;
         }
 
         public Timer() { }
@@ -24,6 +24,10 @@ namespace PomodoroTimer
                 int workTimeInMinutes = _workTime * 1000*60;
                 timer.Start();
                 Thread.Sleep(workTimeInMinutes);
+                if(workTimeInMinutes != 0)
+                {
+                    Console.WriteLine("working");
+                }
                 Console.WriteLine(workTimeInMinutes);
                 timer.Stop();
             }
@@ -40,6 +44,30 @@ namespace PomodoroTimer
             Console.WriteLine("Worktime completed");            
         }
 
+        public void restTime()
+        {
+            Stopwatch timer = new Stopwatch();
+
+            if (_restTime > 0)
+            {
+                int restTimeInMinutes = _restTime * 1000 * 60;
+                timer.Start();
+                Thread.Sleep(restTimeInMinutes);
+                Console.WriteLine(restTimeInMinutes);
+                timer.Stop();
+            }
+            else
+            {
+                Console.WriteLine("Invalid time input. Input an integer");
+            }
+
+            TimeSpan ts = timer.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            ts.Hours, ts.Minutes, ts.Seconds,
+            ts.Milliseconds / 10);
+            Console.WriteLine("RunTime " + elapsedTime);
+            Console.WriteLine("Worktime completed");
+        }
 
     }
 }
