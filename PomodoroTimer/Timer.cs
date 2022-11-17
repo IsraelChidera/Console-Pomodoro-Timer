@@ -5,8 +5,7 @@ namespace PomodoroTimer
     class Timer
     {
         private int _workTime;
-        private int _restTime;
-        private int start;
+        private int _restTime;        
 
         public Timer(int workTime, int restTime)
         {
@@ -18,10 +17,11 @@ namespace PomodoroTimer
 
         public void workTime()
         {
+            
             Stopwatch timer = new Stopwatch();
-
+            
             if (_workTime > 0)
-            {
+            {                
                 int workTimeInMinutes = _workTime * 1000*60;
                 timer.Start();
                 Thread.Sleep(workTimeInMinutes);
@@ -47,7 +47,7 @@ namespace PomodoroTimer
             Stopwatch timer = new Stopwatch();
 
             if (_restTime > 0)
-            {
+            {               
                 int restTimeInMinutes = _restTime * 1000 * 60;
                 timer.Start();
                 Thread.Sleep(restTimeInMinutes);
