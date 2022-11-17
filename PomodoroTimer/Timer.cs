@@ -6,11 +6,13 @@ namespace PomodoroTimer
     {
         private int _workTime;
         private int _restTime;
+        private int start;
 
         public Timer(int workTime, int restTime)
         {
             _workTime = workTime;
             _restTime = restTime;
+            start = 0;
         }
 
         public Timer() { }
@@ -24,10 +26,7 @@ namespace PomodoroTimer
                 int workTimeInMinutes = _workTime * 1000*60;
                 timer.Start();
                 Thread.Sleep(workTimeInMinutes);
-                if(workTimeInMinutes != 0)
-                {
-                    Console.WriteLine("working");
-                }
+                //for(int i=0)
                 Console.WriteLine(workTimeInMinutes);
                 timer.Stop();
             }
