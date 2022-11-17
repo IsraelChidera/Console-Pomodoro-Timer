@@ -19,10 +19,11 @@ namespace PomodoroTimer
             int reply = Convert.ToInt32(Console.ReadLine());
             if(reply == 1)
             {
+                Console.WriteLine("Focus on your task. You are doing great! /n You have {0} minutes to work", workTime);
                 pomo.workTime();
-                Console.WriteLine("Focus on your task. You are doing great!");
+                
                 pomo.restTime();
-                Console.WriteLine("Time to take a rest");
+                Console.WriteLine("Time to take a rest. \n you have {0} minutes to rest", restTime);
             }
             if (reply == 0)
             {
