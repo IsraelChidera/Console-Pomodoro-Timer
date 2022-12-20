@@ -2,7 +2,7 @@
 
 namespace PomodoroTimer
 {
-    class Timer
+    public partial class Timer
     {
         private int _workTime;
         private int _restTime;        
@@ -15,18 +15,22 @@ namespace PomodoroTimer
 
         public Timer() { }
 
-        public void workTime()
+        public void WorkTime()
         {
             
             Stopwatch timer = new Stopwatch();
             
             if (_workTime > 0)
             {                
-                int workTimeInMinutes = _workTime * 1000*60;
+                int workTimeInSeconds = _workTime * 60;
                 timer.Start();
-                Thread.Sleep(workTimeInMinutes);
-                //for(int i=0)
-                Console.WriteLine(workTimeInMinutes);
+                for (int i = 0; i < workTimeInSeconds; i++)
+                {
+                    Console.Write("Work time covered: ");
+                    Console.WriteLine($"{i} seconds");
+                    Thread.Sleep(1000);
+                    //Console.Clear();
+                }                                
                 timer.Stop();
             }
             else
@@ -35,23 +39,28 @@ namespace PomodoroTimer
             }
 
             TimeSpan ts = timer.Elapsed;
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            string elapsedTime = String.Format("\n{0:00}:{1:00}:{2:00}.{3:00}",
             ts.Hours, ts.Minutes, ts.Seconds,
             ts.Milliseconds / 10);
-            Console.WriteLine("RunTime " + elapsedTime);
-            Console.WriteLine("Worktime completed");            
+            Console.WriteLine("Summary of work time: " + elapsedTime);
+            Utility.Success("Work time completed");      
         }
 
-        public void restTime()
+        public void RestTime()
         {
             Stopwatch timer = new Stopwatch();
 
             if (_restTime > 0)
             {               
-                int restTimeInMinutes = _restTime * 1000 * 60;
+                int restTimeInSeconds = _restTime * 60;
                 timer.Start();
-                Thread.Sleep(restTimeInMinutes);
-                Console.WriteLine(restTimeInMinutes);
+                for (int i = 0; i < restTimeInSeconds; i++)
+                {
+                    Console.Write("Rest time covered: ");
+                    Console.WriteLine($"{i} seconds");
+                    Thread.Sleep(1000);
+                    Console.Clear();
+                }
                 timer.Stop();
             }
             else
@@ -60,11 +69,11 @@ namespace PomodoroTimer
             }
 
             TimeSpan ts = timer.Elapsed;
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            string elapsedTime = String.Format("\n{0:00}:{1:00}:{2:00}.{3:00}",
             ts.Hours, ts.Minutes, ts.Seconds,
             ts.Milliseconds / 10);
-            Console.WriteLine("RunTime " + elapsedTime);
-            Console.WriteLine("Worktime completed");
+            Console.WriteLine("Summary of the rest time: " + elapsedTime);
+            Utility.Success("Rest time completed");
         }
 
     }
