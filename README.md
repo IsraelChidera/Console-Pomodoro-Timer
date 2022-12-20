@@ -1,10 +1,10 @@
 # Console-Pomodoro-Timer
 
-#### What does our Pomodoro Timer do?
+### What does our Pomodoro Timer do?
 
 This is a customizable pomodoro timer that works on console. The aim of this console application is to help you focus on any task you are working on, such as study, writing, or coding. This app is inspired by Pomodoro Technique which is a time management method developed by **Francesco Cirillo.**
 
-#### How to use the Pomodoro Timer?
+### How to use the Pomodoro Timer?
 
 Unlike the Pomodoro technique that uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks of 5 to 15 minutes, our console Pomodoro app allows you to pick any time for both work and break.
 
